@@ -136,31 +136,32 @@ const getDistance = (lat1: number, lon1: number, lat2: number, lon2: number) => 
 
 // --- COMPONENTS ---
 
-// New Logo Component based on "Likho" brand (Feather on Book)
+// Updated Logo Component: Clean composition of Feather on Book
 const Logo = ({ size = 48, className = "" }: any) => {
   return (
     <div className={`relative flex items-center justify-center ${className}`} style={{ width: size, height: size }}>
-      <BookOpen 
-        size={size} 
-        className="text-black dark:text-white absolute" 
-        strokeWidth={2}
-      />
-      <Feather 
-        size={size * 0.9} 
-        className="text-yellow-400 absolute -top-[10%] -right-[10%] fill-yellow-400 drop-shadow-md" 
-        strokeWidth={1.5}
-        style={{ filter: "drop-shadow(1px 1px 0px rgba(0,0,0,0.2))" }}
-      />
+       {/* Background Book */}
+       <BookOpen 
+         size={size} 
+         strokeWidth={1.5}
+         className="text-black dark:text-white drop-shadow-sm"
+       />
+       {/* Foreground Feather - Gold */}
+       <Feather 
+          size={size * 0.8} 
+          className="absolute -bottom-1 -right-1 text-yellow-500 fill-yellow-400 drop-shadow-md transform -rotate-12" 
+          strokeWidth={1.5}
+       />
     </div>
   );
 };
 
 const SplashScreen = () => (
   <div className="fixed inset-0 z-[200] bg-brand-yellow flex flex-col items-center justify-center animate-out fade-out duration-500 delay-[2000ms] pointer-events-none fill-mode-forwards">
-    <div className="bg-white/20 p-6 rounded-full backdrop-blur-sm animate-bounce shadow-xl">
+    <div className="bg-white/20 p-8 rounded-full backdrop-blur-sm animate-bounce shadow-xl">
        <Logo size={80} />
     </div>
-    <h1 className="text-4xl font-black mt-6 tracking-tighter text-black">LIKHO</h1>
+    <h1 className="text-5xl font-black mt-6 tracking-tighter text-black">LIKHO</h1>
     <p className="text-black font-bold mt-2 animate-pulse text-sm tracking-widest uppercase">Write. Share. Create.</p>
   </div>
 );
@@ -1757,7 +1758,10 @@ const Layout = ({ children }: any) => {
         <button onClick={() => setSidebarOpen(true)} className="p-2 -ml-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
           <Menu size={24} />
         </button>
-        <span className="font-black text-xl tracking-tighter">LIKHO</span>
+        <div className="flex items-center gap-2">
+           <Logo size={28} />
+           <span className="font-black text-xl tracking-tighter">LIKHO</span>
+        </div>
         <div className="flex gap-1">
           <div className="relative">
              <button onClick={() => setNotifOpen(!notifOpen)} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
