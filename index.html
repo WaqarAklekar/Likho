@@ -11,10 +11,22 @@
         theme: {
           extend: {
             colors: {
+              yellow: {
+                50: '#FFFFF7',
+                100: '#FEFCE8',
+                200: '#FFF7CD',
+                300: '#FFF2A8',
+                400: '#FFEA00', /* Brighter Vivid Yellow */
+                500: '#FFD600', /* Darker Vivid Yellow */
+                600: '#FACC15', /* Standard Yellow-400 as 600 for depth without orange */
+                700: '#EAB308',
+                800: '#CA8A04',
+                900: '#A16207',
+              },
               brand: {
-                yellow: '#facc15', // Yellow-400
+                yellow: '#FFEA00',
                 black: '#000000',
-                dark: '#111827', // Gray-900
+                dark: '#111827',
               }
             }
           }
@@ -30,7 +42,7 @@
       
       /* Custom Selection Color */
       ::selection {
-        background-color: #facc15; 
+        background-color: #FFEA00; 
         color: black;
       }
     </style>
